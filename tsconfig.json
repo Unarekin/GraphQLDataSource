@@ -1,36 +1,46 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
+    "compilerOptions": {
+        "outDir": "./build",
+        "module": "commonjs",
+        "target": "es2020",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "sourceMap": true,
+        "allowJs": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "rootDir": "./src",
+        "noImplicitReturns": true,
+        "noImplicitThis": false,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "src/**/*.ts"
     ],
-    "lib": [
-      "es2018",
-      "dom"
+    "exclude": [
+        "node_modules",
+        "build",
+        "scripts",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "src/setupTests.ts",
+        "mochawesome-report",
+        "test",
+        "coverage"
     ],
-    "paths": {
-      "graph-qldata-source": [
-        "dist/graph-qldata-source"
-      ],
-      "graph-qldata-source/*": [
-        "dist/graph-qldata-source/*"
-      ],
-      "ngx-graphqldatasource": [
-        "dist/ngx-graphqldatasource"
-      ],
-      "ngx-graphqldatasource/*": [
-        "dist/ngx-graphqldatasource/*"
-      ]
+    "types": [
+        "typePatches",
+        "node",
+        "mocha"
+    ],
+    "babel": {
+        "presets": [
+            "@babel/preset-react"
+        ]
     }
-  }
 }
