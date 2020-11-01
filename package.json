@@ -1,0 +1,30 @@
+{
+  "name": "ngx-graphqldatasource",
+  "version": "0.0.1",
+  "description": "Custom data source for Angular Material's data-table",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unarekin/GraphQLDataSource.git"
+  },
+  "keywords": [
+    "graphql",
+    "angular",
+    "angular-material"
+  ],
+  "author": "Erica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Unarekin/GraphQLDataSource/issues"
+  },
+  "homepage": "https://github.com/Unarekin/GraphQLDataSource#readme",
+  "dependencies": {
+    "@angular/cdk": "^10.2.6",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
+    "rxjs": "^6.6.3"
+  }
+}
