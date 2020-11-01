@@ -8,6 +8,7 @@ import gql from 'graphql-tag';
  * Settings for creating a GraphQLDataSource
  */
 export interface GraphQLDataSourceSettings<T> {
+  server: string,
   /** The GraphQL query */
   query: DocumentNode | string,
   /** Any parameters to be passed to theq uery */
