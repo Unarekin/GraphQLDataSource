@@ -4,7 +4,14 @@
   "description": "Custom data source for Angular Material's data-table",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha ./**/*.spec.ts"
+    "test": "npx mocha ./**/*.spec.ts",
+    "build": "npm run clean && npx tsc && npm run docs",
+    "docs": "npm run docs:html && npm run docs:md",
+    "docs:html": "npx jsdoc -c ./jsdocs.conf.json",
+    "docs:md": "npx mkdirp docs/md && npx jsdoc2md -c ./jsdocsmd.conf.json > docs/md/readme.md",
+    "clean": "npm run clean:build && npm run clean:docs",
+    "clean:build": "npx rimraf dist",
+    "clean:docs": "npx rimraf docs"
   },
   "repository": {
     "type": "git",
@@ -36,6 +43,8 @@
     "@types/node": "^14.14.6",
     "apollo-server": "^2.19.0",
     "chai": "^4.2.0",
+    "jsdoc": "^3.6.6",
+    "jsdoc-to-markdown": "^6.0.1",
     "source-map-support": "^0.5.19",
     "ts-node": "^9.0.0",
     "tslint": "^6.1.3",

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { GraphQLDataSource, GraphQLDataSourceSettings } from './graphqldatasource';
+import { GraphQLDataSource, GraphQLDataSourceSettings } from './';
 import { ApolloServer, gql } from 'apollo-server';
 import { expect, assert, should } from 'chai';
 

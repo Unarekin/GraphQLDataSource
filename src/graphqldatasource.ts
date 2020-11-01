@@ -3,24 +3,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, finalize, startWith } from 'rxjs/operators'
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
+import { GraphQLDataSourceSettings } from './';
 
-/**
- * Settings for creating a GraphQLDataSource
- */
-export interface GraphQLDataSourceSettings<T> {
-  server: string,
-  /** The GraphQL query */
-  query: DocumentNode | string,
-  /** Any parameters to be passed to theq uery */
-  params: any,
-  /** A function that handles extracting actual items to return */
-  dataFilter: (document: any) => T[],
-  /** A function that handles extracting the total record count from a query */
-  countFilter: (document: any) => number
-}
 
 /**
  * Data Source for Angular Material's data-table, allowing for remote-fetching of GraphQL data with server-side pagination, sorting, and filtering.
+ * @implements {DataSource<T>}
  */
 export class GraphQLDataSource<T> implements DataSource<T> {
   private loadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
