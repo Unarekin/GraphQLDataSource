@@ -8,7 +8,7 @@
     "build": "npm run clean && npx tsc && npm run docs",
     "docs": "npm run docs:html && npm run docs:md",
     "docs:html": "npx jsdoc -c ./jsdocs.conf.json",
-    "docs:md": "npx mkdirp docs/md && npx jsdoc2md -c ./jsdocsmd.conf.json > docs/md/readme.md",
+    "docs:md": "npx mkdirp docs/md && npx jsdoc2md dist/*.js > docs/md/readme.md",
     "clean": "npm run clean:build && npm run clean:docs",
     "clean:build": "npx rimraf dist",
     "clean:docs": "npx rimraf docs"
