@@ -4,7 +4,7 @@
   "description": "Custom data source for Angular Material's data-table",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,26 @@
   "homepage": "https://github.com/Unarekin/GraphQLDataSource#readme",
   "dependencies": {
     "@angular/cdk": "^10.2.6",
+    "@angular/core": "^10.2.1",
+    "@types/mocha": "^8.0.3",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
+    "mocha": "^8.2.0",
     "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^10.2.1",
+    "@types/node": "^14.14.6",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.0.5"
+  },
+  "mocha": {
+    "require": [
+      "source-map-support/register",
+      "ts-node/register"
+    ],
+    "full-trace": true
   }
 }
