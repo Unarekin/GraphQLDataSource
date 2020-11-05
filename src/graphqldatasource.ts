@@ -1,9 +1,11 @@
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+// import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, finalize, startWith } from 'rxjs/operators'
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
 import { GraphQLDataSourceSettings } from './';
+const fetch = require('node-fetch');
 
 
 /**
@@ -39,9 +41,35 @@ export class GraphQLDataSource<T> implements DataSource<T> {
    * @returns {Observable}
    */
   connect(collectionViewer: CollectionViewer): Observable<T[]> { return this.dataSubject.asObservable(); }
-  disconnect(collectionViewer: CollectionViewer): void { }
+
+  /**
+   * Disconnects
+   * @param {CollectionViewer} collectionViewer 
+   */
+  disconnect(collectionViewer: CollectionViewer): void {
+    this.dataSubject.complete();
+    this.loadingSubject.complete();
+    this.countSubject.complete();
+  }
 
 
+  async loadData(pageIndex: number = 0, pageSize: number = 10) {
+    this.loadingSubject.next(true);
+    console.log("POSTing: ", this.settings.server);
+
+    let res = await fetch(this.settings.server, {
+      method: 'POST',
+      data: {
+        query: `
+`
+      },
+      headers: {
+        auth: this.settings.auth
+      }
+    });
+
+    console.log("Results: ", res);
+  }
 
 
 }

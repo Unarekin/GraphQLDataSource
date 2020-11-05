@@ -7,6 +7,7 @@ import { DocumentNode } from 'graphql';
 
 export interface GraphQLDataSourceSettings<T> {
     /** The server to which to connect. */ server: string,
+    /** Authentication string to pass to request */ auth?: string,
     /** The GraphQL query */ query: DocumentNode | string,
     /** Any parameters to be passed to theq uery */ params: any,
     /** A function that handles extracting actual items to return */ dataFilter: (document: any) => T[],

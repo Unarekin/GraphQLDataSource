@@ -30,11 +30,13 @@
   "homepage": "https://github.com/Unarekin/GraphQLDataSource#readme",
   "dependencies": {
     "@angular/cdk": "^10.2.6",
+    "@angular/common": "^10.2.1",
     "@angular/core": "^10.2.1",
     "@types/mocha": "^8.0.3",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
     "mocha": "^8.2.0",
+    "node-fetch": "^2.6.1",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
