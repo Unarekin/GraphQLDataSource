@@ -53,23 +53,22 @@ export class GraphQLDataSource<T> implements DataSource<T> {
   }
 
 
-  async loadData(pageIndex: number = 0, pageSize: number = 10) {
-    this.loadingSubject.next(true);
-    console.log("POSTing: ", this.settings.server);
-
+  /**
+   * 
+   * @async
+   * @param {any} params 
+   */
+  public async LoadData(params: any = null) {
     let res = await fetch(this.settings.server, {
       method: 'POST',
-      data: {
-        query: `
-`
-      },
       headers: {
-        auth: this.settings.auth
-      }
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query: this.settings.query })
     });
 
     console.log("Results: ", res);
-  }
 
+  }
 
 }
